@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6020084A2852C16B0027BD85 /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602008492852C16B0027BD85 /* TabCurve.swift */; };
 		60DC299C284FD5A00015CD9D /* TappingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC299B284FD5A00015CD9D /* TappingApp.swift */; };
 		60DC299E284FD5A00015CD9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC299D284FD5A00015CD9D /* ContentView.swift */; };
 		60DC29A0284FD5A30015CD9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DC299F284FD5A30015CD9D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		602008492852C16B0027BD85 /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
 		60DC2998284FD5A00015CD9D /* Tapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DC299B284FD5A00015CD9D /* TappingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappingApp.swift; sourceTree = "<group>"; };
 		60DC299D284FD5A00015CD9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				60DC299B284FD5A00015CD9D /* TappingApp.swift */,
 				60DC299D284FD5A00015CD9D /* ContentView.swift */,
+				602008492852C16B0027BD85 /* TabCurve.swift */,
 				60DC299F284FD5A30015CD9D /* Assets.xcassets */,
 				60DC29A4284FD5A30015CD9D /* Persistence.swift */,
 				60DC29A6284FD5A30015CD9D /* Tapping.xcdatamodeld */,
@@ -267,6 +270,7 @@
 				60DC299E284FD5A00015CD9D /* ContentView.swift in Sources */,
 				60DC299C284FD5A00015CD9D /* TappingApp.swift in Sources */,
 				60DC29A8284FD5A30015CD9D /* Tapping.xcdatamodeld in Sources */,
+				6020084A2852C16B0027BD85 /* TabCurve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
