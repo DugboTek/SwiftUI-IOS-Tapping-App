@@ -19,6 +19,8 @@ struct HomePage_Previews: PreviewProvider {
 }
 
 struct HomePage: View{
+    @Namespace var namespace
+    
     var body: some View{
             VStack{
                 TextView()
@@ -97,8 +99,8 @@ struct FeaturedTappingRow: View{
                 .foregroundColor(Color("textMain"))
             ScrollView(.horizontal,showsIndicators: false){
                 HStack{
-                    ForEach(0..<5) { _ in
-                        TopicCard()
+                    ForEach(topicsList) { TopicModel in
+                        TopicCard(name:TopicModel.name)
                         
                     }
                 }
@@ -112,10 +114,13 @@ struct TappingTopics:View{
     var body: some View{
         ZStack{
             ScrollView( showsIndicators:false){
-                TappingCard()
-                TappingCard()
-                TappingCard()
-                TappingCard()
+                ScrollViewReader{ value in
+                    ForEach(tapList) { TapModel in
+                        TappingCard(name:TapModel.name,description: TapModel.description,duration: TapModel.duration)
+                        
+                    }
+                }
+             
 
             }
                 .padding(.top, 10)
@@ -131,16 +136,19 @@ struct TappingTopics:View{
 
 
 struct TopicCard: View {
+    @State var name: String
     var body: some View{
         VStack{
-            Text("Anxiety")
+          
+            Text(name)
                 .font(.custom("Avenir-Heavy", size: 20))
                 .frame(height:120)
                 .cornerRadius(24)
-                .padding(.top,4)
+                .padding(.horizontal,11.0)
+                
                 
         }
-        .frame(width:130,height:40)
+        .frame(height:40)
         .background(Color("background"))
         .cornerRadius(30)
         .shadow(radius: 2)
@@ -151,10 +159,14 @@ struct TopicCard: View {
 }
 
 struct TappingCard: View {
+    @State var name:String
+    @State var description:String
+    @State var duration: Int
+    
     var body: some View{
         VStack{
-            HStack(alignment: .center){
-                Text("Anxiety")
+            HStack(){
+                Text(name)
                     .font(.custom("Avenir-Heavy", size: 30))
                     .cornerRadius(24)
                     .padding(.leading,20)
@@ -162,11 +174,12 @@ struct TappingCard: View {
                     .padding(.top,20)
                     .foregroundColor(Color("textMain"))
                 VStack(alignment: .trailing){
-                    Text("20 min")
+                    Text("\(duration) min")
                         .padding(.all,6).background(Color("accentColor1")).clipShape(Capsule())
                         .font(.custom("Avenir-Heavy", size: 18))
                         .foregroundColor(Color.white)
                         .padding(.bottom,20)
+                        .offset(x:50,y:0)
                     tapNowButton()
                 }
                
@@ -174,7 +187,7 @@ struct TappingCard: View {
             }
             .padding(.top,20)
 
-            Text("Through prayer and tapping this audio guides you through how to deal with anxiety")
+            Text(description)
                 //.padding(.all,1)
                 .font(.custom("Avenir-Medium", size: 17))
                 .padding(.horizontal,10)
@@ -198,19 +211,16 @@ struct tapNowButton: View{
             print("Delete tapped!")
         }) {
             HStack {
-                
-                Text("Tap Now")
-                    .font(.custom("Avenir-Heavy", size: 20))
-                    .padding(.trailing,10)
-                    .padding(.leading,10)
+               
                    
-                Image(systemName: "chevron.forward")
-                    .padding(.trailing,10)
+                Image(systemName: "play.fill")
+                    .padding(10)
             }
             .foregroundColor(.white)
-            .frame(width: 140, height: 35, alignment: .center)
             .background(Color("accentColor1"))
             .cornerRadius(40)
+            .offset(x:50,y:0)
+
         }
     }
 }
