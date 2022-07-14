@@ -22,6 +22,27 @@ struct DetailView: View{
             VStack{
                 VStack{
                     VStack{
+                        ZStack(alignment:.top){
+                            
+                            Group{
+                                Image(tapData.image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .overlay(Color.green.opacity(0.2))
+                                    .frame(height: size.height / 2)
+                                    .cornerRadius(30)
+                                    .matchedGeometryEffect(id: tapData.id + "IMAGE", in: animation)
+                                    .offset(y:-130)
+                                Text(tapData.name)
+                                    .font(.custom("Avenir-Heavy", size: 30,relativeTo: .title))
+                                    .minimumScaleFactor(0.2)
+                                    .padding(.top, 119.0)
+                                    .foregroundColor(Color("white"))
+                                    .multilineTextAlignment(.center)
+                                    .shadow(radius: 5)
+                                    .matchedGeometryEffect(id: tapData.id + "TITLE", in: animation)
+                            }
+                            Divider()
                             HStack{
                                 Button(action:
                                         {
@@ -52,23 +73,8 @@ struct DetailView: View{
                                 }
                             }
                             .padding()
+                            .frame(maxWidth:.infinity,maxHeight:100,alignment: .topLeading)
                             .opacity(showDetailContent ? 1 :0)
-                        ZStack{
-                            Text(tapData.name)
-                                .font(.custom("Avenir-Heavy", size: 30,relativeTo: .title))
-                                .minimumScaleFactor(0.2)
-                                .padding(.leading, 20.0)
-                                .foregroundColor(Color("black"))
-                                .matchedGeometryEffect(id: tapData.id + "TITLE", in: animation)
-                                
-                            Image(tapData.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .overlay(Color.green.opacity(0.2))
-                                .frame(height: size.height / 3)
-                                .cornerRadius(30)
-                                .matchedGeometryEffect(id: tapData.id + "IMAGE", in: animation)
-                            
                             
                                 
                         }
@@ -101,6 +107,7 @@ struct DetailView: View{
 }
 
 struct DetailView_Previews: PreviewProvider {
+    @Namespace static var animation
     static var previews: some View {
         MainView()
     }

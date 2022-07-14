@@ -10,7 +10,10 @@
 		6012DBC32853E091002DD370 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012DBC22853E091002DD370 /* HomePage.swift */; };
 		6012DBC52853E0C6002DD370 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6012DBC42853E0C6002DD370 /* NavBar.swift */; };
 		6020084A2852C16B0027BD85 /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602008492852C16B0027BD85 /* TabCurve.swift */; };
+		606A1927286BDA870026A3EA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606A1926286BDA860026A3EA /* DetailView.swift */; };
+		606A192A286BDD5D0026A3EA /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606A1929286BDD5D0026A3EA /* RoundedShape.swift */; };
 		60ACD7632861474800FB7391 /* TopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ACD7622861474800FB7391 /* TopicModel.swift */; };
+		60D9E0A5287CAEC700C50783 /* TappingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9E0A4287CAEC700C50783 /* TappingViewModel.swift */; };
 		60DC299C284FD5A00015CD9D /* TappingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC299B284FD5A00015CD9D /* TappingApp.swift */; };
 		60DC299E284FD5A00015CD9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC299D284FD5A00015CD9D /* ContentView.swift */; };
 		60DC29A0284FD5A30015CD9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DC299F284FD5A30015CD9D /* Assets.xcassets */; };
@@ -45,7 +48,10 @@
 		6012DBC22853E091002DD370 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		6012DBC42853E0C6002DD370 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		602008492852C16B0027BD85 /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
+		606A1926286BDA860026A3EA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		606A1929286BDD5D0026A3EA /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
 		60ACD7622861474800FB7391 /* TopicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicModel.swift; sourceTree = "<group>"; };
+		60D9E0A4287CAEC700C50783 /* TappingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappingViewModel.swift; sourceTree = "<group>"; };
 		60DC2998284FD5A00015CD9D /* Tapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DC299B284FD5A00015CD9D /* TappingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappingApp.swift; sourceTree = "<group>"; };
 		60DC299D284FD5A00015CD9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		606A1928286BDD370026A3EA /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				602008492852C16B0027BD85 /* TabCurve.swift */,
+				606A1929286BDD5D0026A3EA /* RoundedShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		60DC298F284FD5A00015CD9D = {
 			isa = PBXGroup;
 			children = (
@@ -110,18 +125,15 @@
 		60DC299A284FD5A00015CD9D /* Tapping */ = {
 			isa = PBXGroup;
 			children = (
+				606A1928286BDD370026A3EA /* Shapes */,
 				60DF63442857E82300C5723E /* Models */,
 				60DF63432857E81A00C5723E /* Views */,
 				60DC299B284FD5A00015CD9D /* TappingApp.swift */,
-				60DF63412857AF9600C5723E /* MatchedView.swift */,
-				60DC299D284FD5A00015CD9D /* ContentView.swift */,
-				6012DBC22853E091002DD370 /* HomePage.swift */,
-				6012DBC42853E0C6002DD370 /* NavBar.swift */,
-				602008492852C16B0027BD85 /* TabCurve.swift */,
 				60DC299F284FD5A30015CD9D /* Assets.xcassets */,
 				60DC29A4284FD5A30015CD9D /* Persistence.swift */,
 				60DC29A6284FD5A30015CD9D /* Tapping.xcdatamodeld */,
 				60DC29A1284FD5A30015CD9D /* Preview Content */,
+				60D9E0A4287CAEC700C50783 /* TappingViewModel.swift */,
 			);
 			path = Tapping;
 			sourceTree = "<group>";
@@ -154,6 +166,11 @@
 		60DF63432857E81A00C5723E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				60DC299D284FD5A00015CD9D /* ContentView.swift */,
+				6012DBC42853E0C6002DD370 /* NavBar.swift */,
+				60DF63412857AF9600C5723E /* MatchedView.swift */,
+				6012DBC22853E091002DD370 /* HomePage.swift */,
+				606A1926286BDA860026A3EA /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,11 +319,14 @@
 				60DC299E284FD5A00015CD9D /* ContentView.swift in Sources */,
 				60DC299C284FD5A00015CD9D /* TappingApp.swift in Sources */,
 				6012DBC52853E0C6002DD370 /* NavBar.swift in Sources */,
+				606A1927286BDA870026A3EA /* DetailView.swift in Sources */,
 				60ACD7632861474800FB7391 /* TopicModel.swift in Sources */,
 				60DF63422857AF9600C5723E /* MatchedView.swift in Sources */,
 				60DC29A8284FD5A30015CD9D /* Tapping.xcdatamodeld in Sources */,
 				6020084A2852C16B0027BD85 /* TabCurve.swift in Sources */,
 				60DF63462857EFC200C5723E /* TapModel.swift in Sources */,
+				606A192A286BDD5D0026A3EA /* RoundedShape.swift in Sources */,
+				60D9E0A5287CAEC700C50783 /* TappingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
