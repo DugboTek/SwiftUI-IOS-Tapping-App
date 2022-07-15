@@ -40,16 +40,14 @@ struct HomePage: View{
                         Group{
                             if appModel.currentActiveItem?.id == tapData.id && appModel.showDetailView{
                                 Text(tapData.name)
-                                   // .matchedGeometryEffect(id: tapData.name, in: animation)
                                     .font(.custom("Avenir-Heavy", size: 30,relativeTo: .title))
                                     .minimumScaleFactor(0.2)
                                     .padding(.leading, 20.0)
                                     .foregroundColor(Color("textMain"))
-                                    .opacity(0)
+                                    //.opacity(0)
                                 }
                             else{
                                 Text(tapData.name)
-                                   // .matchedGeometryEffect(id: tapData.name, in: animation)
                                     .font(.custom("Avenir-Heavy", size: 30,relativeTo: .title))
                                     .minimumScaleFactor(0.2)
                                     .padding(.leading, 20.0)
@@ -61,8 +59,7 @@ struct HomePage: View{
                         VStack(alignment: .trailing){
                             
                             Text("\(tapData.duration) min")
-                                //.matchedGeometryEffect(id: tapData.duration, in: animation)
-
+                                .matchedGeometryEffect(id: tapData.id+"DURATION", in: animation)
                                 .padding(.all,6).background(Color("accentColor1")).clipShape(Capsule())
                                 .font(.custom("Avenir-Heavy", size: 18))
                                 .foregroundColor(Color.white)
@@ -72,7 +69,7 @@ struct HomePage: View{
                                 Image(systemName: "play.fill")
                                     .padding(10)
                                     .onTapGesture(perform: {
-                                        withAnimation(.easeIn){
+                                        withAnimation(.spring()){
                                             appModel.currentActiveItem = tapData
                                             appModel.showDetailView = true
                                     }
@@ -88,14 +85,18 @@ struct HomePage: View{
 
                     }
                     .padding(.top,20)
-
+                    
                     Text(tapData.description)
                         //.padding(.all,1)
                        // .matchedGeometryEffect(id: tapData.description, in: animation)
                         .font(.custom("Avenir-Medium", size: 17))
                         .padding(.horizontal,10)
                         .frame(maxWidth: .infinity,maxHeight:.infinity, alignment: .center)
-                        .background(Color.white)
+                        .background{
+                            Color("white")
+                                .matchedGeometryEffect(id: tapData.id+"background", in: animation)
+                        }
+                        .matchedGeometryEffect(id: tapData.id+"DESCRIPTION", in: animation)
 
                     
             }
@@ -105,11 +106,17 @@ struct HomePage: View{
                 Group{
                     if appModel.currentActiveItem?.id == tapData.id && appModel.showDetailView{
                         Image(tapData.image).resizable().scaledToFill()
+                            
                             .overlay(Color.green.opacity(0.2))
                             .opacity(0)
                     }
                     else{
                         Image(tapData.image).resizable().scaledToFill()
+                          /*  .mask(
+                                RoundedRectangle(cornerRadius: 30,style:.continuous)
+                                    .matchedGeometryEffect(id: "mask", in: animation)
+                                    
+                            )*/
                             .overlay(Color.green.opacity(0.2))
                             .matchedGeometryEffect(id: tapData.id + "IMAGE", in: animation)
                     }
@@ -119,6 +126,7 @@ struct HomePage: View{
             }
             .cornerRadius(30)
             .padding(.top,20)
+            //.matchedGeometryEffect(id: "background", in: animation)
         }
     }
     
